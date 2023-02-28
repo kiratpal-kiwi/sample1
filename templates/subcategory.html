@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<html>
+      <head>
+      <style>
+          .card-container{
+          display:flex;
+
+          }
+          .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+          }
+
+
+
+    </style>
+      </head>
+<body>
+
+      <h2 style="text-align:center">Product Card</h2>
+      <div class="card-container">
+          {% for i in subcategory %}
+      <div class="card">
+          <img src="{{MEDIA_URL}}{{i.image.url}}" alt="Denim Jeans" style="width:100%">
+          <a  href="{% url 'subcategory' id=i.id %}">{{i.name}}</a>
+
+          {% endfor %}
+
+      </div>
+      </div>
+
+
+{% endblock %}
+
+</body>
+</html>
+
+

@@ -1,0 +1,50 @@
+{% load static %}
+
+    <html lang="en">
+    <head>
+        <style>
+        .topnav {
+          text-align: center;
+          padding: 3px;
+          background-color: DarkSalmon;
+          color: white;
+}
+</style>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <!-- Load icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Document</title>
+
+    </head>
+    <body>
+
+        <div style="padding-left:16px">
+            <h1>Welcome to UNCIOFashion</h1>
+
+        </div>
+
+        <div class="topnav">
+            {% for cat in category %}
+
+            <a  href="{% url 'category' id=cat.id %}">{{cat.name}}</a>
+           {% endfor %}
+            <br>
+            <div class="container">
+          <input  class ="inp-box" type="text" id="box" placeholder="Search anything..." class="search__box">
+      <button type="submit"><i class="fa fa-search"></i></button>
+
+      </div>
+            {% if not request.user.is_authenticated %}
+                <a class="signup" href="/signup"> SignUp</a>
+                <a class="signin" href="/signin"> SignIn</a>
+            {% else %}
+                <a class="signout" href="/signout"> SignOut</a>
+            {% endif %}
+                <a href="{% url 'index' %}">HOME</a>
+
+
+        </div>
+    </body>

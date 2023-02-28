@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+       <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <title>sign up</title>
+</head>
+<body>
+
+    <h2>Sign Up</h2>
+    <form action="/signup" method="POST">
+        {% csrf_token %}
+        <lable for="">Username</lable>
+        <input type="text" id="username" name="username" placeholder="create a username" required>
+        <br>
+
+        <lable for="">Firstname</lable>
+        <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+        <br>
+
+        <lable for="">Lastname</lable>
+        <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+        <br>
+
+        <lable for="">Email</lable>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <br>
+
+        <lable for="">Password</lable>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        <br>
+
+        <lable for="">confirm password</lable>
+        <input type="password" id="confirm-pass" name="confirm-password" placeholder="Please your confirm-password" required>
+        <br>
+
+        <button type="submit">sign Up</button>
+
+
+
+
+    </form>
+{% endblock %}
+</body>
+</html>
